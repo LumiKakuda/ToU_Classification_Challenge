@@ -19,14 +19,14 @@ To fully reproduce the analysis in this Jupyter Notebook, please follow these st
 
 1. Project Structure
 
-Classification cAhllenge/
-├── sepsis_classification.ipynb  # The Jupyter Notebook containing the analysis
-├── s41598-020-73558-3_sepsis_survival_study_cohort.csv # #Dataset 1
-└── s41598-020-73558-3_sepsis_survival_validation_cohort.csv #Dataset 2
-└── s41598-020-73558-3_sepsis_survival_primary_cohort.csv #Dataset 3
-└── FUNCTIONS_EDA.pv #With Functions used in the jupter notebook
-├── README.md                           # This file
-└── requirements.txt                    # List of required Python packages
+├── README.md                                                      # This file
+├── Classification Challenge/
+  ├── sepsis_classification.ipynb                                  # The Jupyter Notebook containing the analysis
+  ├── s41598-020-73558-3_sepsis_survival_study_cohort.csv          #Dataset 1
+  └── s41598-020-73558-3_sepsis_survival_validation_cohort.csv     #Dataset 2
+  └── s41598-020-73558-3_sepsis_survival_primary_cohort.csv        #Dataset 3
+  └── FUNCTIONS_EDA.pv                                             #With Functions used in the jupter notebook
+  └── requirements.txt                                             # List of required Python packages
 
 2. Install Dependencies
 
