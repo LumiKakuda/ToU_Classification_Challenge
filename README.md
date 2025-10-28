@@ -1,93 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sepsis Survival Minimal Clinical Records</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
-        h1 { border-bottom: 2px solid #333; padding-bottom: 10px; }
-        h2 { color: #0056b3; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px; }
-        h3 { color: #333; margin-top: 20px; }
-        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        ul { list-style-type: disc; margin-left: 20px; }
-        .emphasis { font-weight: bold; }
-    </style>
-</head>
-<body>
+Sepsis Survival Prediction using Minimal Clinical Records
 
-    <h1>Classification of Sepsis Survival Minimal Clinical Records</h1>
+This project aims to predict the survival outcome of patients admitted with sepsis potential preconditions using a highly interpretable Logistic Regression model and a minimal feature set (Age, Sex, and Number of Prior Sepsis Episodes).
 
-    <h2>1. Project Outline</h2>
-    <p>This project focuses on developing and optimizing a **regression model** to predict the quantitative **Stroke Risk Percentage** for individuals based on their health profiles and reported symptoms. This model aims to serve as a proactive tool for medical professionals to assess risk, enabling targeted preventative care.</p>
+📊 Dataset
 
-    <h3>Problem Definition</h3>
-    <p>The core challenge is a **regression task**: accurately estimating a continuous numerical value (stroke risk percentage) to provide a precise, quantitative risk assessment.</p>
+The data used is the Sepsis Survival Minimal Clinical Records dataset.
 
-    <h3>Expected Social Impact (SDG 3)</h3>
-    <p>The project aligns with **SDG 3: Good Health and Well-being** by supporting:</p>
-    <ul>
-        <li>**Preventative Healthcare:** Facilitating early identification and intervention for high-risk individuals.</li>
-        <li>**Resource Optimization:** Helping healthcare systems allocate resources efficiently by focusing on populations identified as high-risk.</li>
-    </ul>
+Source: UCI Machine Learning Repository 
 
-    <h2>2. Dataset and Preprocessing</h2>
+Original Publication: "Survival prediction of patients with sepsis from age, sex, and septic episode number alone" by Chicco and Jurman (2020).
 
-    <h3>Dataset Details</h3>
-    <p>The analysis utilizes the **Stroke Risk Prediction Dataset Based on Symptoms**, a <span class="emphasis">synthetic dataset</span> available on Kaggle (<a href="https://www.kaggle.com/datasets/mahatiratusher/stroke-risk-prediction-dataset">Kaggle Link</a>). The data's structure reflects established medical risk factors for controlled model development.</p>
-    <ul>
-        <li><strong>Target:</strong> <code>Stroke Risk (%)</code> (continuous value).</li>
-        <li><strong>Feature Types:</strong> 1 numerical feature (<code>Age</code>) and 15 binary (0/1) symptom/condition features.</li>
-    </ul>
+Download Link: https://archive.ics.uci.edu/dataset/827/sepsis+survival+minimal+clinical+records
 
-    <h3>Data Preparation Notes</h3>
-    <ul>
-        <li>The column <code>"At Risk (Binary)"</code> was dropped as it represents a classification target.</li>
-        <li>A total of **2,033 duplicate rows** were removed to ensure the model's training integrity.</li>
-    </ul>
+The dataset is highly imbalanced, with over 92% of records belonging to the 'Alive' class. The primary prediction task is binary classification: determining if a patient is alive (1) or deceased (0) approximately 9 days after admission.
 
-    <h2>3. Instructions to Run the Code</h2>
+💻 Reproduction Guide
+To fully reproduce the analysis in this Jupyter Notebook, please follow these steps.
 
-    <h3>Required Project Files</h3>
-    <p>To successfully run the project's Jupyter Notebook, you must ensure the following files are saved in the **same directory** as your notebook file:</p>
-    <ul>
-        <li>The **dataset** file downloaded from the provided Kaggle link.</li>
-        <li>The external Python functions file: <strong><code>Functions_EAD.py</code></strong>.</li>
-    </ul>
+1. Project Structure
 
-    <h3>Required Libraries</h3>
-    <p>The project requires the following Python libraries. They can be installed via a package manager like <code>pip</code>:</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Library</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code>pandas</code>, <code>numpy</code></td>
-                <td>Data manipulation and numerical operations.</td>
-            </tr>
-            <tr>
-                <td><code>scikit-learn</code></td>
-                <td>Machine learning models (Random Forest, Decision Tree, Linear Regression), cross-validation, and metrics.</td>
-            </tr>
-            <tr>
-                <td><code>seaborn</code>, <code>matplotlib.pyplot</code></td>
-                <td>Data visualization and plotting.</td>
-            </tr>
-        </tbody>
-    </table>
+Classification cAhllenge/
+├── sepsis_classification.ipynb  # The Jupyter Notebook containing the analysis
+├── s41598-020-73558-3_sepsis_survival_study_cohort.csv # #Dataset 1
+└── s41598-020-73558-3_sepsis_survival_validation_cohort.csv #Dataset 2
+└── s41598-020-73558-3_sepsis_survival_primary_cohort.csv #Dataset 3
+└── FUNCTIONS_EDA.pv #With Functions used in the jupter notebook
+├── README.md                           # This file
+└── requirements.txt                    # List of required Python packages
 
-    <h3>Execution</h3>
-    <p>Once all required files and libraries are in place, open the Jupyter Notebook. All preprocessing steps, model training (including hyperparameter tuning), and cross-validation evaluations are contained within the notebook and can be executed sequentially.</p>
+2. Install Dependencies
 
-    <h2>4. Project Maintainer</h2>
-    <p><strong>[Your Name/Alias]</strong><br>
-    [Your Contact Information or GitHub Profile Link]</p>
+All necessary Python packages are listed in requirements.txt. 
 
-</body>
-</html>
+3. Data Setup
+
+The notebook is configured to read the data directly from the local files.
+
+If the file is already in your directory: No action is needed.
+
+If the file is missing: Download the primary cohort CSV file from the UCI link above or the original zip file and place the primary cohort CSV file in the root directory.
+
+4. Run the Notebook
+
+Start the Jupyter Notebook server:
+
+Execute all cells in the notebook sequentially (using the Cell > Run All option).
